@@ -56,7 +56,7 @@ export default function App() {
   }, [type1, type2, daysOnGraph]);
 
   useMemo(async () => {
-    console.log(daysOnGraph)
+    console.log(daysOnGraph);
     const graphData = await getGraphData();
     setGraphInformation(() => graphData);
   }, [daysOnGraph]);
@@ -74,8 +74,10 @@ export default function App() {
 
   return (
     <div className="bg-gray-200 min-h-screen flex items-center justify-center">
-      <div className="bg-white p-5 rounded-lg">
-        <h1 className="text-2xl font-bold text-center mb-10 tracking-wide text-green-400">💱 SMARTCÂMBIO</h1>
+      <div className="bg-white p-5 rounded-lg container">
+        <h1 className="text-2xl font-bold text-center mb-10 tracking-wide text-green-400">
+          💱 SMARTCÂMBIO
+        </h1>
         <div className="flex flex-col  justify-center items-center gap-2 mb-8 lg:flex-row">
           <MoneyInput
             type={type1}
@@ -84,7 +86,7 @@ export default function App() {
             setValue={setValue1}
             onFocus={() => setInputFocus('field1')}
           />
-          {`<>`}
+          ↔
           <MoneyInput
             type={type2}
             setType={setType2}
