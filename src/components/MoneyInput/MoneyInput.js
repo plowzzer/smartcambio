@@ -11,6 +11,14 @@ const MoneyInput = ({ value, setValue, type, setType, ...rest }) => {
     if (type === 'EUR') return 'Є';
   };
 
+  const options = [
+    {name: '🇧🇷 BRL', value: 'BRL'},
+    {name: '🇺🇸 USD', value: 'USD'},
+    {name: '🇬🇧 GBP', value: 'GBP'},
+    {name: '🇯🇵 JPY', value: 'JPY'},
+    {name: '🇪🇺 EUR', value: 'EUR'},
+  ]
+
   const formatMoney = (value) => {
     const number = Number(value);
     if (isNaN(number)) return '';
@@ -51,12 +59,8 @@ const MoneyInput = ({ value, setValue, type, setType, ...rest }) => {
         value={displayValue}
         {...rest}
       />
-      <select value={type} onChange={handleTypeSelect} className="bg-gray-200 h-max px-3">
-        <option value="BRL">🇧🇷 BRL</option>
-        <option value="USD">🇺🇸 USD</option>
-        <option value="GBP">🇬🇧 GBP</option>
-        <option value="JPY">🇯🇵 JPY</option>
-        <option value="EUR">🇪🇺 EUR</option>
+      <select value={type} onChange={handleTypeSelect} className="bg-gray-100 grow-1 px-3">
+        {options.map(({value, name}) => <option value={value}>{name}</option>)}
       </select>
     </div>
   );
